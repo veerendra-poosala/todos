@@ -19,9 +19,9 @@ const Todo = (
 
     return(
         <>
-            <div className="flex items-center w-full h-[2.45rem] px-[1rem] bg-primary">
+            <div className="flex items-center w-full h-[2.45rem] p-[1rem] bg-primary md:overflow-hidden overflow-y-auto">
                 <h2 className="flex-grow text-[1rem] text-white">{todoData?.title}
-                    <span className="ml-1">{`(Updated ${todoData.updated} Times)`}</span>
+                    <span className="ml-1">{`(Updated ${todoData.updated} ${todoData.updated===1 ? "Time" : "Times"})`}</span>
                 </h2>
                 <div className="flex items-center w-auto">
                     <Tooltip title="Edit" >

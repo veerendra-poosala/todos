@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { TodoItem, TodosList } from "./todos.interface";
+import { title } from "process";
 
 
 interface InitialState {
@@ -32,11 +33,12 @@ const TodosSlice = createSlice({
 
         onUpdateTodos : ((state, action : PayloadAction<TodoItem>)=>{
             const index = state.todosData.data?.findIndex(item=>item.id === action.payload.id);
-            if(!!index){
-                state.todosData.data[index] = {
+            if(index !== -1){
+                const todo:TodoItem = {
                     ...action.payload,
-                    updated: (state.todosData.data[index].updated || 0) + 1
+                     updated: (state.todosData.data[index].updated || 0) + 1
                 };
+                state.todosData.data?.splice(index,1,todo);
             }
             
         }),
