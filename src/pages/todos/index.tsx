@@ -1,7 +1,7 @@
 import { NextPageWithLayout } from "../page";
 import Tooltip from '@mui/material/Tooltip';
 import { RootState, store } from "@/store/store";
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { onCreateTodos, onUpdateTodos } from "./todos.slice";
 import { TodoItem } from "./todos.interface";
@@ -17,12 +17,18 @@ const Todos: NextPageWithLayout = ()=>{
     const TodosData = useSelector((state : RootState)=>state.todos);
     const todos = useMemo(()=>TodosData?.todosData?.data,[TodosData]);
 
+    useEffect(() => {
+        setTitle('');
+    }, [todos]);
+
     const createTodo = ()=>{
         const id = uuidv4()
+        const duplicates = todos?.filter(item=>item?.title?.toLowerCase()?.trim() === title?.toLowerCase()?.trim())
         const todoItem:TodoItem = {
             id : id,
             title : title,
-            updated : 0
+            updated : 0,
+            count : duplicates?.length
         }
         dispatch(onCreateTodos(todoItem))
         setTitle('');

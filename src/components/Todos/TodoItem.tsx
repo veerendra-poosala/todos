@@ -4,6 +4,7 @@ import { store } from "@/store/store";
 import { TodoItem } from "@/pages/todos/todos.interface";
 import { onDeleteTodos } from "@/pages/todos/todos.slice";
 import React from "react";
+import { todo } from "node:test";
 
 interface Props{
     todoData : TodoItem;
@@ -20,7 +21,7 @@ const Todo = (
     return(
         <>
             <div className="flex items-center w-full h-[2.45rem] p-[1rem] bg-primary md:overflow-hidden overflow-y-auto">
-                <h2 className="flex-grow text-[1rem] text-white">{todoData?.title}
+                <h2 className="flex-grow text-[1rem] text-white">{todoData?.title} {todoData?.count > 0 ? todoData?.count : ''}
                     <span className="ml-1">{`(Updated ${todoData.updated} ${todoData.updated===1 ? "Time" : "Times"})`}</span>
                 </h2>
                 <div className="flex items-center w-auto">
