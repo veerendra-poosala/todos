@@ -22,7 +22,7 @@ docker-compose up --build -d
 
 ## Verify
 
-Open [http://localhost:3000/] with your browser to see the result.
+Open [http://localhost:3000/] or [http://54.165.141.125:3000/todos] with your browser to see the result.
 
 
 
