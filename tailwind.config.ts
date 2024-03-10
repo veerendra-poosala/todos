@@ -20,7 +20,7 @@ const config: Config = {
       colors:{
         primary : '#0059b3',
         secondary : '#404040',
-        primary2 : '',
+        primary2 : '#fff',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

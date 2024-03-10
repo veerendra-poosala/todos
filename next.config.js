@@ -11,7 +11,7 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  pageExtensions: ['mdx', 'md', 'jsx', 'js', 'tsx', 'ts','mjs'],
+  pageExtensions: ['tsx'],
 }
 
 module.exports = nextConfig
