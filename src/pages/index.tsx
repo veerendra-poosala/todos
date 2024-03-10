@@ -1,8 +1,9 @@
 import { NextPageWithLayout } from './page'
 import '../app/globals.css'
+import Todos from './todos'
 
 const Home: NextPageWithLayout = () => {
-  return <h1>Hello world</h1>
+  return <Todos />
 }
 
 export default Home
