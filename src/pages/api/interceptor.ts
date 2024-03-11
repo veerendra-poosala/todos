@@ -20,3 +20,23 @@ export const get = (url: string) => {
       })
   })
 }
+
+export const post = (url: string, data: any) => {
+  return new Promise((resolve, reject) => {
+      instance
+          .post(url, data)
+          .then((result) => {
+              if (result.status >= 200 && result.status < 300) {
+                  resolve(result);
+              } else {
+                  reject(result);
+              }
+          })
+          .catch((error) => {
+              reject(error);
+          });
+  });
+};
+
+
+export default instance;
